@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, useNavigate, Link} from "react-router-dom";
 import { v4 as uuidv4 } from 'uuid';
 import Notfound from "../components/Notfound";
+import DefinitionSearch from "../components/DefinitionSearch";
 
 export default function Definition() {
   const [word, setWord] = useState();
@@ -37,16 +38,16 @@ export default function Definition() {
     return (
       <>
         <Notfound />
-        <Link to='/dictionary' className="text-3xl bg-slate-400 p-2 no-underline rounded  text-black hover:bg-yellow-300 absolute top-[200px] left-[45%]">Search Aother</Link>
+        <Link to='/dictionary' className="text-2xl bg-slate-400 p-2 no-underline rounded  text-black hover:bg-yellow-300 absolute top-[50%] translate-x-[-50%] translate-y-[-50%] left-[50%]">Search Aother</Link>
       </>
     )
   }
   if (error === true) {
     return (
-      <>
+      <div className="flex column justify-center">
         <p className="flex justify-center text-2xl text-red-300 pt-2"> Something went wrong</p>
-        <Link to='/dictionary' className="text-3xl bg-slate-400 p-2 no-underline rounded  text-black hover:bg-yellow-300 absolute top-[200px] left-[45%]">Search Aother</Link>
-      </>
+        <Link to='/dictionary' className="text-3xl bg-slate-400 p-2 pt-4 no-underline rounded  text-black hover:bg-yellow-300 ">Search Aother</Link>
+      </div>
     )
 }
   return (
@@ -64,7 +65,9 @@ export default function Definition() {
               </div>
            ) }
           )}</>
-          : <p>mess</p>} 
+        : <p>mess</p>} 
+  <p>Search Again:</p>
+  <DefinitionSearch/>
     </div>
   )
 }
